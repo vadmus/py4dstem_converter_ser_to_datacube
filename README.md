@@ -33,22 +33,12 @@ pip install numpy
 ## How It Works
 
 The script performs the following steps:
-
-1. **File Selection**: Scans the current directory and displays all available files with numbered indices, allowing the user to select the target SER file.
-
-2. **Scan Dimensions Input**: Prompts the user to input the scan grid dimensions (number of pixels in X and Y directions), as this information may not always be stored in the SER file metadata.
-
-3. **Data Reshaping**: Reads the SER file data and reshapes it from a sequential array into a 4D array with dimensions `(scanY, scanX, nbedY, nbedX)`, where:
-   - `scanY, scanX` - real-space scan dimensions
-   - `nbedY, nbedX` - reciprocal-space (diffraction pattern) dimensions
-
-4. **DataCube Creation**: Creates a py4DSTEM DataCube object with proper calibration:
-   - Q-space (reciprocal space) pixel size and units from SER metadata
-   - R-space (real space) pixel size set to 1 nm (can be adjusted)
-
-5. **Optional Binning**: Offers the option to bin (downsample) the diffraction patterns to reduce file size. Optimal binned size is 128×128 pixels for most applications.
-
-6. **Export**: Saves the DataCube to an HDF5 file with a user-specified filename.
+Script scans the current directory and displays all available files with numbered indices, allowing the user to select the target SER file. 
+Prompts the user to input the scan grid dimensions (number of pixels in X and Y directions), as this information may not always be stored in the SER file metadata.
+Reads the SER file data and reshapes it from a sequential array into a 4D array with dimensions `(scanY, scanX, nbedY, nbedX)`, where `scanY, scanX` - real-space scan dimensions, `nbedY, nbedX` - reciprocal-space (diffraction pattern) dimensions
+Then script creates a py4DSTEM DataCube object with proper calibration in real space (`R-space`) and reciprocal space (`Q-space`).
+Optional script offers the option to bin (downsample) the diffraction patterns to reduce file size. Optimal binned size is 128×128 pixels for most applications.
+FInally, script saves the DataCube to an HDF5 file with a user-specified filename.
 
 ## Usage
 
@@ -79,13 +69,9 @@ enter h5 output file name (_something_.h5): gaas_nbed_output.h5
 
 ## Notes
 
-- The script currently sets placeholder calibration values for pixel size (`0.00025 Å⁻¹`). Update these values in the code based on your experimental conditions.
+- The script currently (`version 0.2`) sets placeholder calibration values for pixel size (`0.00025 Å⁻¹`). Update these values in the code based on your experimental conditions.
 - For large scan grids (>100×100 pixels), binning is recommended to keep file sizes manageable.
-- The output HDF5 file can be opened and analyzed using py4DSTEM's analysis tools.
-
-## Author
-
-Created for 4D-STEM data processing workflows.
+- The output HDF5 file can be opened and analyzed using `py4DSTEM` analysis tools.
 
 ## License
 
