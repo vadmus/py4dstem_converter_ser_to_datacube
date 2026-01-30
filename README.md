@@ -89,4 +89,4 @@ Created for 4D-STEM data processing workflows.
 
 ## License
 
-[Specify your license here]
+This project is licensed under the MIT License - see the LICENSE.txt file for details.
