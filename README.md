@@ -25,10 +25,6 @@ pip install ncempy
 pip install numpy
 ```
 
-### Dependencies:
-- **py4DSTEM** - Main library for 4D-STEM data analysis
-- **ncempy** - National Center for Electron Microscopy Python tools (for reading SER files)
-- **numpy** - Numerical computing library
 
 ## How It Works
 
